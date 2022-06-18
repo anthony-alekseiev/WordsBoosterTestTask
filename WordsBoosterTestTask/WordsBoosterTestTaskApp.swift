@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import Combine
 
 @main
 struct WordsBoosterTestTaskApp: App {
+    
+    let apiClient: AnimalCategoriesService = AnimalCategoriesAPIClient()
+    var apiTester: TestApi { TestApi(api: apiClient) }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(apiTester: apiTester)
         }
     }
 }

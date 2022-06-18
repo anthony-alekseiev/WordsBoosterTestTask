@@ -6,16 +6,35 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
+    
+    let apiTester: TestApi
+    
+    init(apiTester: TestApi) {
+        self.apiTester = apiTester
+    }
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Text("Hello, world!")
+                .padding()
+            Button("Press to load") {
+                apiTester.doTest()
+            }
+        }
+        
+        
+        
+        
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        let apiClient: AnimalCategoriesService = AnimalCategoriesAPIClient()
+        let apiTester: TestApi = TestApi(api: apiClient)
+        ContentView(apiTester: apiTester)
     }
 }
