@@ -15,18 +15,6 @@ class AnimalCategoriesAPIClient {
         return apiSession
             .dataTaskPublisher(for: urlRequest.urlSessionRequest)
             .map(\.data)
-            .map {
-                print($0)
-                
-                do {
-                    let res = try JSONDecoder().decode(Response.self, from: $0)
-                    print(res)
-                } catch {
-                    print(error)
-                }
-                
-                return $0
-            }
             .decode(type: Response.self, decoder: JSONDecoder())
             .mapError { error -> AnimalCategoriesServiceError in
                 if let err = error as? URLError {

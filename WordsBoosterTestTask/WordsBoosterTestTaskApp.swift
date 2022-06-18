@@ -11,12 +11,18 @@ import Combine
 @main
 struct WordsBoosterTestTaskApp: App {
     
-    let apiClient: AnimalCategoriesService = AnimalCategoriesAPIClient()
-    var apiTester: TestApi { TestApi(api: apiClient) }
+    let imageLoader: ImageLoader = WBImageLoader()
+    let categoriesService: AnimalCategoriesService = AnimalCategoriesAPIClient()
+    var animalCategoriesViewModel: AnimalCategoriesListViewModel {
+        AnimalCategoriesListViewModel(
+            imageLoader: imageLoader,
+            categoriesService: categoriesService
+        )
+    }
     
     var body: some Scene {
         WindowGroup {
-            ContentView(apiTester: apiTester)
+            AnimaCategoriesListView(viewModel: animalCategoriesViewModel)
         }
     }
 }

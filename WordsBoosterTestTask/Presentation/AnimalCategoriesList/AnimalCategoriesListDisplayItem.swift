@@ -8,13 +8,18 @@
 import SwiftUI
 
 class AnimalCategoriesListDisplayItem: Identifiable {
+    enum State {
+        case free
+        case paid
+        case comingSoon
+    }
+    
     var id: String
     var image: UIImage?
     var isLoading: Bool
     var title: String
     var subtitle: String
-    var isPremium: Bool
-    var isComingSoon: Bool
+    var state: State
     
     init(
         id: String,
@@ -22,15 +27,34 @@ class AnimalCategoriesListDisplayItem: Identifiable {
         isLoading: Bool,
         title: String,
         subtitle: String,
-        isPremium: Bool,
-        isComingSoon: Bool
+        state: State
     ) {
         self.id = id
         self.image = image
         self.isLoading = isLoading
         self.title = title
         self.subtitle = subtitle
-        self.isPremium = isPremium
-        self.isComingSoon = isComingSoon
+        self.state = state
+    }
+}
+
+extension AnimalCategoriesListDisplayItem {
+    convenience init(with domain: AnimalCategory) {
+        var state: AnimalCategoriesListDisplayItem.State = .free
+        if domain.status == .paid {
+            state = .paid
+        }
+        if domain.content.isEmpty {
+            state = .comingSoon
+        }
+        
+        self.init(
+            id: String(domain.order),
+            image: nil,
+            isLoading: true,
+            title: domain.title,
+            subtitle: domain.description,
+            state: state
+        )
     }
 }

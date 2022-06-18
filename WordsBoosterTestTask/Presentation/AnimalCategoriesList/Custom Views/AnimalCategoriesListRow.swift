@@ -18,16 +18,15 @@ struct AnimalCategoriesListRow: View {
         }
         .overlay(comingSoonOverlay)
         .cornerRadius(6)
-            
+        .shadow(
+            color: .black.opacity(0.2),
+            radius: 2, x: 0, y: 2
+        )
     }
     
     private var cardView: some View {
         Rectangle()
             .fill(Color.white)
-            .shadow(
-                color: .black.opacity(0.2),
-                radius: 2, x: 0, y: 2
-            )
     }
     
     @ViewBuilder private var mainContent: some View {
@@ -64,7 +63,7 @@ struct AnimalCategoriesListRow: View {
                         .foregroundColor(.black.opacity(0.5))
                     Spacer()
                     Spacer()
-                    if item.isPremium {
+                    if item.state == .paid {
                         PremiumView()
                     }
                 }
@@ -77,7 +76,7 @@ struct AnimalCategoriesListRow: View {
     }
     
     @ViewBuilder private var comingSoonOverlay: some View {
-        if item.isComingSoon {
+        if item.state == .comingSoon {
                 ZStack {
                     Color(.black.withAlphaComponent(0.6))
                     HStack {
@@ -99,8 +98,7 @@ struct AnimalCategoriesListRow_Previews: PreviewProvider {
         isLoading: false,
         title: "Dogs 🐕",
         subtitle: "Different facts about dogs",
-        isPremium: true,
-        isComingSoon: false
+        state: .paid
         
     )
     @State static var freeItem = AnimalCategoriesListDisplayItem(
@@ -109,8 +107,7 @@ struct AnimalCategoriesListRow_Previews: PreviewProvider {
         isLoading: true,
         title: "Cats 🐈",
         subtitle: "Different facts about cats",
-        isPremium: false,
-        isComingSoon: false
+        state: .free
     )
     
     @State static var noContentItem = AnimalCategoriesListDisplayItem(
@@ -119,8 +116,7 @@ struct AnimalCategoriesListRow_Previews: PreviewProvider {
         isLoading: false,
         title: "Pandas 🐼",
         subtitle: "Different facts about pandas",
-        isPremium: false,
-        isComingSoon: true
+        state: .comingSoon
     )
     
     static var previews: some View {

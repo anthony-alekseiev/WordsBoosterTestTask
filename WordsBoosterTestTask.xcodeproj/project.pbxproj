@@ -12,6 +12,7 @@
 		AC0D275B285E11C30001B5CA /* PremiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D275A285E11C30001B5CA /* PremiumView.swift */; };
 		AC0D275D285E1B7A0001B5CA /* AnimalCategoriesListDisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D275C285E1B7A0001B5CA /* AnimalCategoriesListDisplayItem.swift */; };
 		AC0D275F285E1BE60001B5CA /* AnimaCategoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D275E285E1BE60001B5CA /* AnimaCategoriesListView.swift */; };
+		AC0D2761285E26600001B5CA /* AnimalCategoriesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D2760285E26600001B5CA /* AnimalCategoriesListViewModel.swift */; };
 		AC0D2765285E27990001B5CA /* AnimalCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D2764285E27990001B5CA /* AnimalCategory.swift */; };
 		AC0D276E285E2C490001B5CA /* ImageLoadingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D2768285E2C490001B5CA /* ImageLoadingResult.swift */; };
 		AC0D276F285E2C490001B5CA /* ImageLoaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D2769285E2C490001B5CA /* ImageLoaderProtocol.swift */; };
@@ -19,6 +20,8 @@
 		AC0D2771285E2C490001B5CA /* FakeImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D276B285E2C490001B5CA /* FakeImageLoader.swift */; };
 		AC0D2772285E2C490001B5CA /* WBImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D276C285E2C490001B5CA /* WBImageLoader.swift */; };
 		AC0D2774285E2D590001B5CA /* AnimalCategory+ImageLoadingSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D2773285E2D590001B5CA /* AnimalCategory+ImageLoadingSource.swift */; };
+		AC0D2777285E30B00001B5CA /* AnimalCategory+Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D2776285E30B00001B5CA /* AnimalCategory+Transform.swift */; };
+		AC0D2779285E3D130001B5CA /* FakeAnimalCategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D2778285E3D130001B5CA /* FakeAnimalCategoriesService.swift */; };
 		ACB10B11285C598F009CCAD6 /* AnimalCategoriesServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB10B10285C598F009CCAD6 /* AnimalCategoriesServiceError.swift */; };
 		ACB10B13285C5A61009CCAD6 /* AnimalCategoriesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB10B12285C5A61009CCAD6 /* AnimalCategoriesAPIClient.swift */; };
 		ACB10B17285C5B35009CCAD6 /* GetCategoriesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB10B16285C5B35009CCAD6 /* GetCategoriesRequest.swift */; };
@@ -27,7 +30,6 @@
 		ACB10B1D285C739B009CCAD6 /* AnimalCategoriesServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB10B1C285C739B009CCAD6 /* AnimalCategoriesServiceImplementation.swift */; };
 		ACB10B1F285C76D3009CCAD6 /* TestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB10B1E285C76D3009CCAD6 /* TestApi.swift */; };
 		ACE9FDB0285BB51F006BD107 /* WordsBoosterTestTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE9FDAF285BB51F006BD107 /* WordsBoosterTestTaskApp.swift */; };
-		ACE9FDB2285BB51F006BD107 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE9FDB1285BB51F006BD107 /* ContentView.swift */; };
 		ACE9FDB4285BB521006BD107 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACE9FDB3285BB521006BD107 /* Assets.xcassets */; };
 		ACE9FDB7285BB521006BD107 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACE9FDB6285BB521006BD107 /* Preview Assets.xcassets */; };
 		ACE9FDC1285BB521006BD107 /* WordsBoosterTestTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE9FDC0285BB521006BD107 /* WordsBoosterTestTaskTests.swift */; };
@@ -60,6 +62,7 @@
 		AC0D275A285E11C30001B5CA /* PremiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumView.swift; sourceTree = "<group>"; };
 		AC0D275C285E1B7A0001B5CA /* AnimalCategoriesListDisplayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoriesListDisplayItem.swift; sourceTree = "<group>"; };
 		AC0D275E285E1BE60001B5CA /* AnimaCategoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimaCategoriesListView.swift; sourceTree = "<group>"; };
+		AC0D2760285E26600001B5CA /* AnimalCategoriesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoriesListViewModel.swift; sourceTree = "<group>"; };
 		AC0D2764285E27990001B5CA /* AnimalCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategory.swift; sourceTree = "<group>"; };
 		AC0D2768285E2C490001B5CA /* ImageLoadingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoadingResult.swift; sourceTree = "<group>"; };
 		AC0D2769285E2C490001B5CA /* ImageLoaderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoaderProtocol.swift; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 		AC0D276B285E2C490001B5CA /* FakeImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeImageLoader.swift; sourceTree = "<group>"; };
 		AC0D276C285E2C490001B5CA /* WBImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBImageLoader.swift; sourceTree = "<group>"; };
 		AC0D2773285E2D590001B5CA /* AnimalCategory+ImageLoadingSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimalCategory+ImageLoadingSource.swift"; sourceTree = "<group>"; };
+		AC0D2776285E30B00001B5CA /* AnimalCategory+Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimalCategory+Transform.swift"; sourceTree = "<group>"; };
+		AC0D2778285E3D130001B5CA /* FakeAnimalCategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAnimalCategoriesService.swift; sourceTree = "<group>"; };
 		ACB10B10285C598F009CCAD6 /* AnimalCategoriesServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoriesServiceError.swift; sourceTree = "<group>"; };
 		ACB10B12285C5A61009CCAD6 /* AnimalCategoriesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoriesAPIClient.swift; sourceTree = "<group>"; };
 		ACB10B16285C5B35009CCAD6 /* GetCategoriesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCategoriesRequest.swift; sourceTree = "<group>"; };
@@ -76,7 +81,6 @@
 		ACB10B1E285C76D3009CCAD6 /* TestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApi.swift; sourceTree = "<group>"; };
 		ACE9FDAC285BB51F006BD107 /* WordsBoosterTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordsBoosterTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE9FDAF285BB51F006BD107 /* WordsBoosterTestTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsBoosterTestTaskApp.swift; sourceTree = "<group>"; };
-		ACE9FDB1285BB51F006BD107 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ACE9FDB3285BB521006BD107 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACE9FDB6285BB521006BD107 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ACE9FDBC285BB521006BD107 /* WordsBoosterTestTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordsBoosterTestTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +132,7 @@
 				AC0D2756285E0DD70001B5CA /* Custom Views */,
 				AC0D275C285E1B7A0001B5CA /* AnimalCategoriesListDisplayItem.swift */,
 				AC0D275E285E1BE60001B5CA /* AnimaCategoriesListView.swift */,
+				AC0D2760285E26600001B5CA /* AnimalCategoriesListViewModel.swift */,
 			);
 			path = AnimalCategoriesList;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 				ACB10B15285C5B2A009CCAD6 /* Models */,
 				ACB10B1A285C72F4009CCAD6 /* AnimalCategoriesService.swift */,
 				ACB10B1C285C739B009CCAD6 /* AnimalCategoriesServiceImplementation.swift */,
+				AC0D2778285E3D130001B5CA /* FakeAnimalCategoriesService.swift */,
 			);
 			path = AnimalCategoriesService;
 			sourceTree = "<group>";
@@ -201,6 +207,7 @@
 			children = (
 				ACB10B16285C5B35009CCAD6 /* GetCategoriesRequest.swift */,
 				ACB10B18285C5B6D009CCAD6 /* GetCategoriesResponse.swift */,
+				AC0D2776285E30B00001B5CA /* AnimalCategory+Transform.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -229,10 +236,9 @@
 			isa = PBXGroup;
 			children = (
 				AC0D2762285E27620001B5CA /* Domain */,
-				AC0D2752285DFC820001B5CA /* Presentation */,
 				ACE9FDD9285BB60D006BD107 /* Infrastracture */,
+				AC0D2752285DFC820001B5CA /* Presentation */,
 				ACE9FDAF285BB51F006BD107 /* WordsBoosterTestTaskApp.swift */,
-				ACE9FDB1285BB51F006BD107 /* ContentView.swift */,
 				ACE9FDB3285BB521006BD107 /* Assets.xcassets */,
 				ACE9FDB5285BB521006BD107 /* Preview Content */,
 			);
@@ -439,19 +445,21 @@
 				AC0D2771285E2C490001B5CA /* FakeImageLoader.swift in Sources */,
 				ACB10B1B285C72F4009CCAD6 /* AnimalCategoriesService.swift in Sources */,
 				ACB10B13285C5A61009CCAD6 /* AnimalCategoriesAPIClient.swift in Sources */,
-				ACE9FDB2285BB51F006BD107 /* ContentView.swift in Sources */,
 				AC0D2770285E2C490001B5CA /* ImageLoadingSource.swift in Sources */,
 				ACB10B19285C5B6D009CCAD6 /* GetCategoriesResponse.swift in Sources */,
 				ACB10B17285C5B35009CCAD6 /* GetCategoriesRequest.swift in Sources */,
+				AC0D2777285E30B00001B5CA /* AnimalCategory+Transform.swift in Sources */,
 				AC0D276E285E2C490001B5CA /* ImageLoadingResult.swift in Sources */,
 				ACE9FDB0285BB51F006BD107 /* WordsBoosterTestTaskApp.swift in Sources */,
 				ACB10B1F285C76D3009CCAD6 /* TestApi.swift in Sources */,
 				ACB10B1D285C739B009CCAD6 /* AnimalCategoriesServiceImplementation.swift in Sources */,
 				ACE9FDE0285BB88E006BD107 /* AnimalCategoriesURLRequest.swift in Sources */,
 				AC0D275F285E1BE60001B5CA /* AnimaCategoriesListView.swift in Sources */,
+				AC0D2761285E26600001B5CA /* AnimalCategoriesListViewModel.swift in Sources */,
 				AC0D276F285E2C490001B5CA /* ImageLoaderProtocol.swift in Sources */,
 				AC0D2759285E0E340001B5CA /* LoadingImageView.swift in Sources */,
 				AC0D275D285E1B7A0001B5CA /* AnimalCategoriesListDisplayItem.swift in Sources */,
+				AC0D2779285E3D130001B5CA /* FakeAnimalCategoriesService.swift in Sources */,
 				AC0D2765285E27990001B5CA /* AnimalCategory.swift in Sources */,
 				AC0D275B285E11C30001B5CA /* PremiumView.swift in Sources */,
 				ACE9FDDE285BB7E1006BD107 /* AnimalCategoriesEndpoint.swift in Sources */,

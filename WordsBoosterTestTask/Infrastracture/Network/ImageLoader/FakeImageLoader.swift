@@ -12,7 +12,7 @@ struct FakeImageLoader: ImageLoader {
     let publisher = PassthroughSubject<ImageLoadingResult, Never>()
     var images = [ImageLoadingResult]()
     
-    init(images: [ImageLoadingResult]) {
+    init(images: [ImageLoadingResult]=[]) {
         self.images = images
     }
     

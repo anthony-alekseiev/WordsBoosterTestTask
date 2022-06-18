@@ -9,6 +9,7 @@ import Foundation
 
 struct AnimalCategory {
     enum Status {
+        case unknown
         case paid
         case free
     }
@@ -23,5 +24,5 @@ struct AnimalCategory {
     var image: URL
     var order: Int
     var status: Status
-    var content: [Content]?
+    var content: [Content]
 }
