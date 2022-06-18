@@ -10,6 +10,8 @@
 		AC0D2755285DFCB90001B5CA /* AnimalCategoriesListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D2754285DFCB90001B5CA /* AnimalCategoriesListRow.swift */; };
 		AC0D2759285E0E340001B5CA /* LoadingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D2758285E0E340001B5CA /* LoadingImageView.swift */; };
 		AC0D275B285E11C30001B5CA /* PremiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D275A285E11C30001B5CA /* PremiumView.swift */; };
+		AC0D275D285E1B7A0001B5CA /* AnimalCategoriesListDisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D275C285E1B7A0001B5CA /* AnimalCategoriesListDisplayItem.swift */; };
+		AC0D275F285E1BE60001B5CA /* AnimaCategoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D275E285E1BE60001B5CA /* AnimaCategoriesListView.swift */; };
 		ACB10B11285C598F009CCAD6 /* AnimalCategoriesServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB10B10285C598F009CCAD6 /* AnimalCategoriesServiceError.swift */; };
 		ACB10B13285C5A61009CCAD6 /* AnimalCategoriesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB10B12285C5A61009CCAD6 /* AnimalCategoriesAPIClient.swift */; };
 		ACB10B17285C5B35009CCAD6 /* GetCategoriesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB10B16285C5B35009CCAD6 /* GetCategoriesRequest.swift */; };
@@ -49,6 +51,8 @@
 		AC0D2754285DFCB90001B5CA /* AnimalCategoriesListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoriesListRow.swift; sourceTree = "<group>"; };
 		AC0D2758285E0E340001B5CA /* LoadingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingImageView.swift; sourceTree = "<group>"; };
 		AC0D275A285E11C30001B5CA /* PremiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumView.swift; sourceTree = "<group>"; };
+		AC0D275C285E1B7A0001B5CA /* AnimalCategoriesListDisplayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoriesListDisplayItem.swift; sourceTree = "<group>"; };
+		AC0D275E285E1BE60001B5CA /* AnimaCategoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimaCategoriesListView.swift; sourceTree = "<group>"; };
 		ACB10B10285C598F009CCAD6 /* AnimalCategoriesServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoriesServiceError.swift; sourceTree = "<group>"; };
 		ACB10B12285C5A61009CCAD6 /* AnimalCategoriesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoriesAPIClient.swift; sourceTree = "<group>"; };
 		ACB10B16285C5B35009CCAD6 /* GetCategoriesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCategoriesRequest.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				AC0D2756285E0DD70001B5CA /* Custom Views */,
+				AC0D275C285E1B7A0001B5CA /* AnimalCategoriesListDisplayItem.swift */,
+				AC0D275E285E1BE60001B5CA /* AnimaCategoriesListView.swift */,
 			);
 			path = AnimalCategoriesList;
 			sourceTree = "<group>";
@@ -384,7 +390,9 @@
 				ACB10B1F285C76D3009CCAD6 /* TestApi.swift in Sources */,
 				ACB10B1D285C739B009CCAD6 /* AnimalCategoriesServiceImplementation.swift in Sources */,
 				ACE9FDE0285BB88E006BD107 /* AnimalCategoriesURLRequest.swift in Sources */,
+				AC0D275F285E1BE60001B5CA /* AnimaCategoriesListView.swift in Sources */,
 				AC0D2759285E0E340001B5CA /* LoadingImageView.swift in Sources */,
+				AC0D275D285E1B7A0001B5CA /* AnimalCategoriesListDisplayItem.swift in Sources */,
 				AC0D275B285E11C30001B5CA /* PremiumView.swift in Sources */,
 				ACE9FDDE285BB7E1006BD107 /* AnimalCategoriesEndpoint.swift in Sources */,
 			);
