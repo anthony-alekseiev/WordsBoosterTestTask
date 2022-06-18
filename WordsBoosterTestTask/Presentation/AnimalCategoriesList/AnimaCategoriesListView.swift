@@ -38,6 +38,8 @@ struct AnimaCategoriesListView: View {
         .onAppear {
             viewModel.fetchCategories()
         }
+        .navigationBarHidden(true)
+        .navigationBarTitle(Text(""))
     }
     
     func categoriesList(geometry: GeometryProxy) -> some View {
@@ -85,6 +87,9 @@ struct AnimaCategoriesListView_Previews: PreviewProvider {
                 state: .comingSoon
             )
         ]
-        return AnimaCategoriesListView(viewModel: viewModel)
+        
+        return NavigationView {
+            AnimaCategoriesListView(viewModel: viewModel)
+        }
     }
 }

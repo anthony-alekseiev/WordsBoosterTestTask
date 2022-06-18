@@ -22,7 +22,9 @@ struct WordsBoosterTestTaskApp: App {
     
     var body: some Scene {
         WindowGroup {
-            AnimaCategoriesListView(viewModel: animalCategoriesViewModel)
+            NavigationView {
+                AnimaCategoriesListView(viewModel: animalCategoriesViewModel)
+            }
         }
     }
 }
