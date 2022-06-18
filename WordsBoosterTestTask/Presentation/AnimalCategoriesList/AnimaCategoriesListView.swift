@@ -15,17 +15,39 @@ struct AnimaCategoriesListView: View {
             ZStack {
                 Color(red: 147/256, green: 91/256, blue: 191/256)
                     .ignoresSafeArea()
-                List($viewModel.categoryItems) { item in
-                    AnimalCategoriesListRow(item: item)
-                        .frame(height: geometry.size.height * 0.14)
-                        .listRowBackground(Color.clear)
-                        .listRowSeparator(.hidden)
+                if viewModel.isFetching {
+                    ProgressView("Loading categories...")
+                } else {
+                    categoriesList(geometry: geometry)
                 }
-                .listStyle(.plain)
             }
-        }.onAppear {
+            .alert(
+                isPresented: Binding(
+                        get: { viewModel.error != nil },
+                        set: { _ in }
+                )
+            ) {
+                Alert(
+                    title: Text("Error"),
+                    message: Text(
+                        viewModel.error?.localizedDescription ?? ""
+                    )
+                )
+            }
+        }
+        .onAppear {
             viewModel.fetchCategories()
         }
+    }
+    
+    func categoriesList(geometry: GeometryProxy) -> some View {
+            List($viewModel.categoryItems) { item in
+                AnimalCategoriesListRow(item: item)
+                    .frame(height: geometry.size.height * 0.14)
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
+            }
+            .listStyle(.plain)
     }
 }
 

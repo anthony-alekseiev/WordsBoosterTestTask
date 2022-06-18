@@ -10,6 +10,7 @@ import Combine
 
 final class AnimalCategoriesListViewModel: ObservableObject {
     
+    @Published var isFetching: Bool = false
     @Published var error: Error?
     @Published var categoryItems = [AnimalCategoriesListDisplayItem]()
     
@@ -28,14 +29,16 @@ final class AnimalCategoriesListViewModel: ObservableObject {
  
     func fetchCategories() {
         guard categoryItems.isEmpty else { return }
+        isFetching = true
         let request = AnimalCategoriesService_GetCategoriesRequest()
         categoriesService.getCategories(request: request)
             .map {
                 $0.map { AnimalCategory(with: $0) }
             }.receive(on: DispatchQueue.main)
-            .sink { completion in
+            .sink { [weak self] completion in
+                self?.isFetching = false
                 if case .failure(let error) = completion {
-                    self.error = error
+                    self?.error = error
                 }
             } receiveValue: { [weak self] value in
                 self?.categories = value
