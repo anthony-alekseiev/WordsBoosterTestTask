@@ -25,6 +25,9 @@ struct WordsBoosterTestTaskApp: App {
             NavigationView {
                 AnimaCategoriesListView(viewModel: animalCategoriesViewModel)
             }
+            .background(
+                Color(red: 147/256, green: 91/256, blue: 191/256)
+            )
         }
     }
 }

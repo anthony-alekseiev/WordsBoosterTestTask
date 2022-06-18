@@ -8,16 +8,31 @@
 import SwiftUI
 import Combine
 
+enum AnimalCategoriesListAlertType {
+    case error
+    case ad
+    case comingSoon
+}
+
 final class AnimalCategoriesListViewModel: ObservableObject {
+    
+    @Published var alertType: AnimalCategoriesListAlertType = .error
+    @Published var shouldPresentAlert: Bool = false
+    @Published var shouldPresentAdd: Bool = false
+    @Published var shouldMoveToDetails: Bool = false
     
     @Published var isFetching: Bool = false
     @Published var error: Error?
     @Published var categoryItems = [AnimalCategoriesListDisplayItem]()
+    @Published var selectedCategory: AnimalCategory?
     
+    private var selectedId: String?
     private var categories: [AnimalCategory] = []
     private var subscriptions = [AnyCancellable]()
+    private var timer: Timer?
     private var imageLoader: ImageLoader
     private var categoriesService: AnimalCategoriesService
+    
     
     init(
         imageLoader: ImageLoader,
@@ -25,6 +40,37 @@ final class AnimalCategoriesListViewModel: ObservableObject {
     ) {
         self.imageLoader = imageLoader
         self.categoriesService = categoriesService
+    }
+    
+    func selectItem(with id: String) {
+        guard let category = categories.first(where: { $0.id == id }) else { return }
+        selectedCategory = category
+        if category.content.isEmpty {
+            alertType = .comingSoon
+            shouldPresentAlert = true
+            return
+        }
+        if category.status == .paid {
+            alertType = .ad
+            shouldPresentAlert = true
+            selectedId = id
+            return
+        }
+        shouldMoveToDetails = true
+    }
+    
+    func didRequestToShowAd() {
+        shouldPresentAdd = true
+        timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] timer in
+            guard let id = self?.selectedId,
+            let category = self?.categories.first(where: { $0.id == id })
+            else { return }
+            self?.shouldPresentAdd = false
+            self?.shouldMoveToDetails = true
+            timer.invalidate()
+            self?.timer = nil
+        }
+        
     }
  
     func fetchCategories() {
@@ -38,6 +84,8 @@ final class AnimalCategoriesListViewModel: ObservableObject {
             .sink { [weak self] completion in
                 self?.isFetching = false
                 if case .failure(let error) = completion {
+                    self?.alertType = .error
+                    self?.shouldPresentAlert = true
                     self?.error = error
                 }
             } receiveValue: { [weak self] value in

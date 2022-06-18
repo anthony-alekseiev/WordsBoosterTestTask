@@ -13,28 +13,32 @@ struct AnimaCategoriesListView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
+                nextScreenNavigationLink
                 Color(red: 147/256, green: 91/256, blue: 191/256)
                     .ignoresSafeArea()
                 if viewModel.isFetching {
                     ProgressView("Loading categories...")
                         .tint(.white)
                         .foregroundColor(.white)
+                } else if viewModel.shouldPresentAdd {
+                    ProgressView()
+                        .tint(.white)
+                        .foregroundColor(.white)
                 } else {
                     categoriesList(geometry: geometry)
                 }
             }
-            .alert(
-                isPresented: Binding(
-                        get: { viewModel.error != nil },
-                        set: { _ in }
-                )
-            ) {
-                Alert(
-                    title: Text("Error"),
-                    message: Text(
-                        viewModel.error?.localizedDescription ?? ""
-                    )
-                )
+            
+
+        }
+        .alert(isPresented: $viewModel.shouldPresentAlert) {
+            switch viewModel.alertType {
+            case .error:
+                return errorAlert
+            case .comingSoon:
+                return comingSoonAlert
+            case .ad:
+                return showAddAlert
             }
         }
         .onAppear {
@@ -44,12 +48,61 @@ struct AnimaCategoriesListView: View {
         .navigationBarTitle(Text(""))
     }
     
-    func categoriesList(geometry: GeometryProxy) -> some View {
+    private var nextScreenNavigationLink: some View {
+        NavigationLink(
+            isActive: $viewModel.shouldMoveToDetails) {
+                Text(viewModel.selectedCategory?.id ?? "No")
+                    .navigationBarColor(
+                        Color(red: 147/256, green: 91/256, blue: 191/256)
+                    )
+            } label: {
+              Text("")
+                    
+            }
+            .hidden()
+    }
+    
+    private var errorAlert: Alert {
+        Alert(
+            title: Text("Error"),
+            message: Text(
+                viewModel.error?.localizedDescription ?? ""
+            )
+        )
+    }
+    
+    private var comingSoonAlert: Alert {
+        Alert(
+            title: Text("Coming soon"),
+            message: Text("We are still gathering facts for the animal and they are coming soon. Stay tuned!"),
+            dismissButton: Alert.Button.cancel(Text("OK"))
+        )
+    }
+    
+    private var showAddAlert: Alert {
+        Alert(
+            title: Text("Watch Ad"),
+            message: nil,
+            primaryButton: Alert.Button.cancel(),
+            secondaryButton: Alert.Button.default(
+                Text("Show Ad"),
+                action: {
+                    viewModel.didRequestToShowAd()
+                }
+            )
+        )
+    }
+    
+    private func categoriesList(geometry: GeometryProxy) -> some View {
             List($viewModel.categoryItems) { item in
-                AnimalCategoriesListRow(item: item)
-                    .frame(height: geometry.size.height * 0.14)
-                    .listRowBackground(Color.clear)
-                    .listRowSeparator(.hidden)
+                Button {
+                    viewModel.selectItem(with: item.id)
+                } label: {
+                    AnimalCategoriesListRow(item: item)
+                }
+                .frame(height: geometry.size.height * 0.14)
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
     }
