@@ -17,6 +17,8 @@ struct AnimaCategoriesListView: View {
                     .ignoresSafeArea()
                 if viewModel.isFetching {
                     ProgressView("Loading categories...")
+                        .tint(.white)
+                        .foregroundColor(.white)
                 } else {
                     categoriesList(geometry: geometry)
                 }
