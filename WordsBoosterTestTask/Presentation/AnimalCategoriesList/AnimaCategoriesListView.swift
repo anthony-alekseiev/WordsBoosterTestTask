@@ -48,16 +48,22 @@ struct AnimaCategoriesListView: View {
         .navigationBarTitle(Text(""))
     }
     
+    @ViewBuilder
     private var nextScreenNavigationLink: some View {
         NavigationLink(
             isActive: $viewModel.shouldMoveToDetails) {
-                Text(viewModel.selectedCategory?.id ?? "No")
-                    .navigationBarColor(
-                        Color(red: 147/256, green: 91/256, blue: 191/256)
+                if viewModel.selectedCategory != nil {
+                    FactsView(
+                        category: Binding(
+                            get: { viewModel.selectedCategory! },
+                            set: { viewModel.selectedCategory = $0 }
+                        )
                     )
+                } else {
+                    EmptyView()
+                }
             } label: {
               Text("")
-                    
             }
             .hidden()
     }

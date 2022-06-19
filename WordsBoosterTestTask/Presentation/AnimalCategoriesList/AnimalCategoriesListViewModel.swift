@@ -62,9 +62,6 @@ final class AnimalCategoriesListViewModel: ObservableObject {
     func didRequestToShowAd() {
         shouldPresentAdd = true
         timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] timer in
-            guard let id = self?.selectedId,
-            let category = self?.categories.first(where: { $0.id == id })
-            else { return }
             self?.shouldPresentAdd = false
             self?.shouldMoveToDetails = true
             timer.invalidate()

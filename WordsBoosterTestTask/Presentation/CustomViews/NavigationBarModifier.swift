@@ -11,19 +11,32 @@ struct NavigationBarModifier: ViewModifier {
         
     var backgroundColor: Color
     
-    init(backgroundColor: Color = .clear) {
+    init(
+        backgroundColor: Color = .clear,
+        barTintColor: Color = .white,
+        shadowApplied: Bool = false
+    ) {
         self.backgroundColor = backgroundColor
+        let tintColor = UIColor(barTintColor)
         
-        let coloredAppearance = UINavigationBarAppearance()
-        coloredAppearance.configureWithTransparentBackground()
-        coloredAppearance.backgroundColor = .clear
-        coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
-        UINavigationBar.appearance().standardAppearance = coloredAppearance
-        UINavigationBar.appearance().compactAppearance = coloredAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
-        UINavigationBar.appearance().tintColor = .white
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = .clear
+        appearance.titleTextAttributes = [.foregroundColor: tintColor]
+        appearance.largeTitleTextAttributes = [.foregroundColor: tintColor]
+        
+        if shadowApplied {
+            appearance.shadowColor = nil
+            appearance.shadowImage = UIImage(named: "shadow_image")!
+        }
+        
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().tintColor = UIColor(barTintColor)
+        
+        
     }
     
     func body(content: Content) -> some View {
