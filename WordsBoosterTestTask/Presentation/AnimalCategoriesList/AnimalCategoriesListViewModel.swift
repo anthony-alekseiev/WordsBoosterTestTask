@@ -44,12 +44,12 @@ final class AnimalCategoriesListViewModel: ObservableObject {
     
     func selectItem(with id: String) {
         guard let category = categories.first(where: { $0.id == id }) else { return }
-        selectedCategory = category
         if category.content.isEmpty {
             alertType = .comingSoon
             shouldPresentAlert = true
             return
         }
+        selectedCategory = category
         if category.status == .paid {
             alertType = .ad
             shouldPresentAlert = true

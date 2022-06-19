@@ -20,14 +20,22 @@ struct WordsBoosterTestTaskApp: App {
         )
     }
     
+    func buildFactsViewModel(_ category: AnimalCategory) -> FactsViewModel {
+        FactsViewModel(category: category, imageLoader: imageLoader)
+    }
+    
+    func buildFactsView(_ animalCategory: AnimalCategory) -> FactsView {
+        FactsView(viewModel: buildFactsViewModel(animalCategory))
+    }
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                AnimaCategoriesListView(viewModel: animalCategoriesViewModel)
+                AnimaCategoriesListView(
+                    viewModel: animalCategoriesViewModel,
+                    detailsViewBuilder: buildFactsView)
             }
-            .background(
-                Color(red: 147/256, green: 91/256, blue: 191/256)
-            )
+            .navigationViewStyle(StackNavigationViewStyle())    
         }
     }
 }

@@ -17,3 +17,14 @@ extension AnimalCategory: ImageLoadingSource {
         return self.image
     }
 }
+
+extension AnimalCategory.Content: ImageLoadingSource {
+    
+    var id: String {
+        return self.fact + self.image.absoluteString
+    }
+
+    var imageUrl: URL {
+        return self.image
+    }
+}

@@ -12,16 +12,6 @@ struct FactCard: View {
     var previousAction: () -> Void
     var nextAction: () -> Void
     
-    init(
-        item: Binding<FactDisplayItem>,
-        _ previousAction: @escaping () -> Void,
-        _ nextAction: @escaping () -> Void
-    ) {
-        self._item = item
-        self.previousAction = previousAction
-        self.nextAction = nextAction
-    }
-    
     var body: some View {
         ZStack {
             cardView
@@ -83,6 +73,7 @@ struct FactCard: View {
             isLoading: $item.isLoading
         )
         .frame(
+            width: geometry.size.width * 0.9,
             height: geometry.size.height * 0.55
         )
         .clipped()
@@ -91,6 +82,7 @@ struct FactCard: View {
 
 struct FactCard_Previews: PreviewProvider {
     @State static var item = FactDisplayItem(
+        id: "1",
         image: nil,
         isLoading: false,
         fact: "Different facts about pandas",
@@ -102,9 +94,9 @@ struct FactCard_Previews: PreviewProvider {
         ZStack {
             Rectangle()
                 .fill(Color(red: 147/256, green: 91/256, blue: 191/256))
-            FactCard(item: $item, {
+            FactCard(item: $item, previousAction: {
                 
-            }, {
+            }, nextAction: {
                 
             })
                 .frame(height: 435)

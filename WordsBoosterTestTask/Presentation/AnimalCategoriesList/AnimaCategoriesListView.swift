@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AnimaCategoriesListView: View {
     @ObservedObject var viewModel: AnimalCategoriesListViewModel
+    var detailsViewBuilder: (_ animalCategory: AnimalCategory) -> FactsView
     
     var body: some View {
         GeometryReader { geometry in
@@ -52,15 +53,10 @@ struct AnimaCategoriesListView: View {
     private var nextScreenNavigationLink: some View {
         NavigationLink(
             isActive: $viewModel.shouldMoveToDetails) {
-                if viewModel.selectedCategory != nil {
-                    FactsView(
-                        category: Binding(
-                            get: { viewModel.selectedCategory! },
-                            set: { viewModel.selectedCategory = $0 }
-                        )
-                    )
-                } else {
-                    EmptyView()
+                if viewModel.shouldMoveToDetails {
+                    if viewModel.selectedCategory != nil {
+                        detailsViewBuilder(viewModel.selectedCategory!)
+                    }
                 }
             } label: {
               Text("")
@@ -119,6 +115,31 @@ struct AnimaCategoriesListView_Previews: PreviewProvider {
         imageLoader: FakeImageLoader(),
         categoriesService: FakeAnimalCategoriesService()
     )
+    @State static var detailsViewModel: FactsViewModel = {
+        FactsViewModel(
+            category: AnimalCategory(
+                title: "Dogs 🐕",
+                description: "Different facts about dogs",
+                image: URL(string: "https://google.com")!,
+                order: 1,
+                status: .free,
+                content: [
+                    AnimalCategory.Content(
+                        fact: "During the Renaissance, detailed portraits of the dog as a symbol of fidelity and loyalty appeared in mythological, allegorical, and religious art throughout Europe, including works by Leonardo da Vinci, Diego Velázquez, Jan van Eyck, and Albrecht Durer.",
+                        image: URL(string: "https://images.dog.ceo/breeds/basenji/n02110806_4150.jpg")!
+                    ),
+                    AnimalCategory.Content(
+                        fact: "The Mayans and Aztecs symbolized every tenth day with the dog, and those born under this sign were believed to have outstanding leadership skills.",
+                        image: URL(string: "https://images.dog.ceo/breeds/cotondetulear/100_2397.jpgt")!
+                    ),
+                    AnimalCategory.Content(
+                        fact: "If never spayed or neutered, a female dog, her mate, and their puppies could produce over 66,000 dogs in 6 years!",
+                        image: URL(string: "https://images.dog.ceo/breeds/puggle/IMG_075427.jpg")!
+                    )
+                ]
+            ), imageLoader: FakeImageLoader()
+        )
+    }()
     
     static var previews: some View {
         viewModel.categoryItems = [
@@ -150,7 +171,12 @@ struct AnimaCategoriesListView_Previews: PreviewProvider {
         ]
         
         return NavigationView {
-            AnimaCategoriesListView(viewModel: viewModel)
+            AnimaCategoriesListView(
+                viewModel: viewModel,
+                detailsViewBuilder: { _ in
+                    FactsView(viewModel: detailsViewModel)
+                }
+            )
         }
     }
 }
