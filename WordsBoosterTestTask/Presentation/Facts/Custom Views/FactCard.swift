@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-struct FactDisplayItem {
-    var image: UIImage?
-    var isLoading: Bool
-    var fact: String
-    var previousEnabled: Bool
-    var nextEnabled: Bool
-}
-
 struct FactCard: View {
     @Binding var item: FactDisplayItem
     var previousAction: () -> Void
