@@ -13,10 +13,15 @@ struct WordsBoosterTestTaskApp: App {
     
     let imageLoader: ImageLoader = WBImageLoader()
     let categoriesService: AnimalCategoriesService = AnimalCategoriesAPIClient()
+    
+    var getAnimalCategoriesUseCase: GetAnimalCategories {
+        GetAnimalCategories(categoriesService: categoriesService)
+    }
+    
     var animalCategoriesViewModel: AnimalCategoriesListViewModel {
         AnimalCategoriesListViewModel(
             imageLoader: imageLoader,
-            categoriesService: categoriesService
+            getAnimalCategoriesUseCase: getAnimalCategoriesUseCase
         )
     }
     

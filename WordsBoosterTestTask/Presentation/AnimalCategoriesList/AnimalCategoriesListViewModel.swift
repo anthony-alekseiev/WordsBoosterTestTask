@@ -31,15 +31,14 @@ final class AnimalCategoriesListViewModel: ObservableObject {
     private var subscriptions = [AnyCancellable]()
     private var timer: Timer?
     private var imageLoader: ImageLoader
-    private var categoriesService: AnimalCategoriesService
-    
+    private var getAnimalCategoriesUseCase: GetAnimalCategories
     
     init(
         imageLoader: ImageLoader,
-        categoriesService: AnimalCategoriesService
+        getAnimalCategoriesUseCase: GetAnimalCategories
     ) {
         self.imageLoader = imageLoader
-        self.categoriesService = categoriesService
+        self.getAnimalCategoriesUseCase = getAnimalCategoriesUseCase
     }
     
     func selectItem(with id: String) {
@@ -73,23 +72,22 @@ final class AnimalCategoriesListViewModel: ObservableObject {
     func fetchCategories() {
         guard categoryItems.isEmpty else { return }
         isFetching = true
-        let request = AnimalCategoriesService_GetCategoriesRequest()
-        categoriesService.getCategories(request: request)
-            .map {
-                $0.map { AnimalCategory(with: $0) }
-            }.receive(on: DispatchQueue.main)
-            .sink { [weak self] completion in
-                self?.isFetching = false
-                if case .failure(let error) = completion {
-                    self?.alertType = .error
-                    self?.shouldPresentAlert = true
-                    self?.error = error
-                }
-            } receiveValue: { [weak self] value in
-                self?.categories = value
-                self?.reloadItems()
+        getAnimalCategoriesUseCase.execute(
+            with: GetAnimalCategoriesRequest()
+        )
+        .receive(on: DispatchQueue.main)
+        .sink { [weak self] completion in
+            self?.isFetching = false
+            if case .failure(let error) = completion {
+                self?.alertType = .error
+                self?.shouldPresentAlert = true
+                self?.error = error
             }
-            .store(in: &subscriptions)
+        } receiveValue: { [weak self] value in
+            self?.categories = value
+            self?.reloadItems()
+        }
+        .store(in: &subscriptions)
     }
     
     private func reloadItems() {

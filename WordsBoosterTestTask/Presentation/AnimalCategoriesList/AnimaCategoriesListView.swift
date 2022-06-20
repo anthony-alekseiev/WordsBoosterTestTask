@@ -113,7 +113,9 @@ struct AnimaCategoriesListView: View {
 struct AnimaCategoriesListView_Previews: PreviewProvider {
     @State static var viewModel = AnimalCategoriesListViewModel(
         imageLoader: FakeImageLoader(),
-        categoriesService: FakeAnimalCategoriesService()
+        getAnimalCategoriesUseCase: GetAnimalCategories(
+            categoriesService: FakeAnimalCategoriesService()
+        )
     )
     @State static var detailsViewModel: FactsViewModel = {
         FactsViewModel(
