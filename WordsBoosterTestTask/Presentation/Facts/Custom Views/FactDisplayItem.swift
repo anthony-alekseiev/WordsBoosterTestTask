@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-class FactDisplayItem {
+class FactDisplayItem: Identifiable, Hashable {
+    
     var id: String
     var image: UIImage?
     var isLoading: Bool
@@ -29,5 +30,13 @@ class FactDisplayItem {
         self.fact = fact
         self.previousEnabled = previousEnabled
         self.nextEnabled = nextEnabled
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: FactDisplayItem, rhs: FactDisplayItem) -> Bool {
+        lhs.id == rhs.id && lhs.image == rhs.image
     }
 }

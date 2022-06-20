@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct FactCard: View {
+    
+    @State private var translation: CGSize = .zero
     @Binding var item: FactDisplayItem
+    
     var previousAction: () -> Void
     var nextAction: () -> Void
     

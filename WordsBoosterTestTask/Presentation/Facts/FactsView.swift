@@ -15,20 +15,32 @@ struct FactsView: View {
             Color(red: 147/256, green: 91/256, blue: 191/256)
                 .ignoresSafeArea()
             GeometryReader { geometry in
-                FactCard(
-                    item: $viewModel.factItem,
-                    previousAction: viewModel.previousFact,
-                    nextAction: viewModel.nextFact
-                )
-                    .frame(height: geometry.size.height * 0.62)
-                    .padding(.horizontal, 20)
-                    .navigationStyle(
-                        Color(red: 147/256, green: 91/256, blue: 191/256),
-                        barTintColor: .black,
-                        applyShadow: true
-                    )
-                    .navigationTitle(viewModel.categoryTitle)
+                TabView(selection: $viewModel.selectedItemId) {
+                    ForEach($viewModel.allFactItems) { item in
+                        FactCard(
+                            item: item,
+                            previousAction: viewModel.previousFact,
+                            nextAction: viewModel.nextFact
+                        )
+                        .frame(
+                            height: geometry.size.height * 0.62
+                        )
+                        .padding(.horizontal, 20)
+                        .tag(item.id)
+                    }
+                }
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                .animation(.easeInOut, value: viewModel.selectedItemId)
+                .transition(.slide)
+                .ignoresSafeArea(.container, edges: .bottom)
+                .padding(.top, 20)
             }
+            .navigationStyle(
+                Color(red: 147/256, green: 91/256, blue: 191/256),
+                barTintColor: .black,
+                applyShadow: true
+            )
+            .navigationTitle(viewModel.categoryTitle)
         }.onAppear {
             viewModel.fetchData()
         }
