@@ -22,9 +22,7 @@ struct FactsView: View {
                             previousAction: viewModel.previousFact,
                             nextAction: viewModel.nextFact
                         )
-                        .frame(
-                            height: geometry.size.height * 0.62
-                        )
+                        .frame(maxHeight: geometry.size.height * 0.7)
                         .padding(.horizontal, 20)
                         .tag(item.id)
                     }
@@ -33,7 +31,6 @@ struct FactsView: View {
                 .animation(.easeInOut, value: viewModel.selectedItemId)
                 .transition(.slide)
                 .ignoresSafeArea(.container, edges: .bottom)
-                .padding(.top, 20)
             }
             .navigationStyle(
                 Color(red: 147/256, green: 91/256, blue: 191/256),
