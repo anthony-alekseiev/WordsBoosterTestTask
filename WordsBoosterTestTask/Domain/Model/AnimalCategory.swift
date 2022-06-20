@@ -8,10 +8,10 @@
 import Foundation
 
 struct AnimalCategory {
-    enum Status {
-        case unknown
-        case paid
-        case free
+    enum Status: String {
+        case unknown = "unknown"
+        case paid = "paid"
+        case free = "free"
     }
     
     struct Content {

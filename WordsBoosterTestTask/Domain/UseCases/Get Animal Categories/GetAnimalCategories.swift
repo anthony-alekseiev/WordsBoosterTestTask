@@ -13,22 +13,15 @@ struct GetAnimalCategories: UseCase {
     typealias Request = GetAnimalCategoriesRequest
     typealias Response = [AnimalCategory]
     
-    private var subscriptions = [AnyCancellable]()
-    private var categoriesService: AnimalCategoriesService
+    private var repository: AnimalCategoriesRepositoryProtocol
     
-    init(categoriesService: AnimalCategoriesService) {
-        self.categoriesService = categoriesService
+    init(repository: AnimalCategoriesRepositoryProtocol) {
+        self.repository = repository
     }
     
     func execute(with request: GetAnimalCategoriesRequest) -> AnyPublisher<[AnimalCategory], Error> {
-        let request = AnimalCategoriesService_GetCategoriesRequest()
-        return categoriesService.getCategories(request: request)
-            .map {
-                $0.map { AnimalCategory(with: $0) }
-            }
-            .mapError({ err in
-                err as Error
-            })
+        let request = AnimalCategoriesRepositoryGetRequest()        
+        return repository.getAnimalCategories(request)
             .eraseToAnyPublisher()
         
     }

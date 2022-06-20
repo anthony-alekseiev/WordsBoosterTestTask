@@ -34,6 +34,21 @@
 		AC36E80B2860DB74004E3F64 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC36E80A2860DB74004E3F64 /* UseCase.swift */; };
 		AC36E80D2860DBDD004E3F64 /* GetAnimalCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC36E80C2860DBDD004E3F64 /* GetAnimalCategories.swift */; };
 		AC36E8102860DCAF004E3F64 /* GetAnimalCategoriesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC36E80F2860DCAF004E3F64 /* GetAnimalCategoriesRequest.swift */; };
+		AC36E8132860E433004E3F64 /* AnimalCategoriesRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC36E8122860E433004E3F64 /* AnimalCategoriesRepositoryProtocol.swift */; };
+		AC36E8152860E96A004E3F64 /* AnimalCategoriesRepositoryGetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC36E8142860E96A004E3F64 /* AnimalCategoriesRepositoryGetRequest.swift */; };
+		AC36E8172860EA23004E3F64 /* AnimalCategoriesDataSourceReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC36E8162860EA23004E3F64 /* AnimalCategoriesDataSourceReader.swift */; };
+		AC36E81A2860F689004E3F64 /* AnimalCategoriesDataSourceReaderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC36E8192860F689004E3F64 /* AnimalCategoriesDataSourceReaderRequest.swift */; };
+		AC36E81C2860F722004E3F64 /* AnimalCategoriesDataSourceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC36E81B2860F722004E3F64 /* AnimalCategoriesDataSourceImplementation.swift */; };
+		AC36E8202860FA97004E3F64 /* AnimalCategoriesDataSourceWriterSaveMultipleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC36E81F2860FA97004E3F64 /* AnimalCategoriesDataSourceWriterSaveMultipleRequest.swift */; };
+		AC36E8222860FAEB004E3F64 /* AnimalCategoryDataSourceWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC36E8212860FAEB004E3F64 /* AnimalCategoryDataSourceWriter.swift */; };
+		AC36E8242860FBC3004E3F64 /* AnimalCategoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC36E8232860FBC3004E3F64 /* AnimalCategoriesRepository.swift */; };
+		AC36E82628610126004E3F64 /* FakeAnimalCategoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC36E82528610126004E3F64 /* FakeAnimalCategoriesRepository.swift */; };
+		AC50780A2861104100898079 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5078092861104100898079 /* DataProvider.swift */; };
+		AC50780C28611C9D00898079 /* AnimalCategoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC50780B28611C9D00898079 /* AnimalCategoryStorage.swift */; };
+		AC50780F28611D7000898079 /* AnimalCategoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC50780E28611D7000898079 /* AnimalCategoryObject.swift */; };
+		AC50781128611E5800898079 /* AnimalCategoryContentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC50781028611E5800898079 /* AnimalCategoryContentObject.swift */; };
+		AC50781328611F2200898079 /* AnimalCategory+Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC50781228611F2200898079 /* AnimalCategory+Object.swift */; };
+		AC50781528611FE500898079 /* AnimalCategoryContent+Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC50781428611FE500898079 /* AnimalCategoryContent+Object.swift */; };
 		ACB10B11285C598F009CCAD6 /* AnimalCategoriesServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB10B10285C598F009CCAD6 /* AnimalCategoriesServiceError.swift */; };
 		ACB10B13285C5A61009CCAD6 /* AnimalCategoriesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB10B12285C5A61009CCAD6 /* AnimalCategoriesAPIClient.swift */; };
 		ACB10B17285C5B35009CCAD6 /* GetCategoriesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB10B16285C5B35009CCAD6 /* GetCategoriesRequest.swift */; };
@@ -93,6 +108,21 @@
 		AC36E80A2860DB74004E3F64 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		AC36E80C2860DBDD004E3F64 /* GetAnimalCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAnimalCategories.swift; sourceTree = "<group>"; };
 		AC36E80F2860DCAF004E3F64 /* GetAnimalCategoriesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAnimalCategoriesRequest.swift; sourceTree = "<group>"; };
+		AC36E8122860E433004E3F64 /* AnimalCategoriesRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoriesRepositoryProtocol.swift; sourceTree = "<group>"; };
+		AC36E8142860E96A004E3F64 /* AnimalCategoriesRepositoryGetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoriesRepositoryGetRequest.swift; sourceTree = "<group>"; };
+		AC36E8162860EA23004E3F64 /* AnimalCategoriesDataSourceReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoriesDataSourceReader.swift; sourceTree = "<group>"; };
+		AC36E8192860F689004E3F64 /* AnimalCategoriesDataSourceReaderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoriesDataSourceReaderRequest.swift; sourceTree = "<group>"; };
+		AC36E81B2860F722004E3F64 /* AnimalCategoriesDataSourceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoriesDataSourceImplementation.swift; sourceTree = "<group>"; };
+		AC36E81F2860FA97004E3F64 /* AnimalCategoriesDataSourceWriterSaveMultipleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoriesDataSourceWriterSaveMultipleRequest.swift; sourceTree = "<group>"; };
+		AC36E8212860FAEB004E3F64 /* AnimalCategoryDataSourceWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoryDataSourceWriter.swift; sourceTree = "<group>"; };
+		AC36E8232860FBC3004E3F64 /* AnimalCategoriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoriesRepository.swift; sourceTree = "<group>"; };
+		AC36E82528610126004E3F64 /* FakeAnimalCategoriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAnimalCategoriesRepository.swift; sourceTree = "<group>"; };
+		AC5078092861104100898079 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		AC50780B28611C9D00898079 /* AnimalCategoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoryStorage.swift; sourceTree = "<group>"; };
+		AC50780E28611D7000898079 /* AnimalCategoryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoryObject.swift; sourceTree = "<group>"; };
+		AC50781028611E5800898079 /* AnimalCategoryContentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoryContentObject.swift; sourceTree = "<group>"; };
+		AC50781228611F2200898079 /* AnimalCategory+Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimalCategory+Object.swift"; sourceTree = "<group>"; };
+		AC50781428611FE500898079 /* AnimalCategoryContent+Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimalCategoryContent+Object.swift"; sourceTree = "<group>"; };
 		ACB10B10285C598F009CCAD6 /* AnimalCategoriesServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoriesServiceError.swift; sourceTree = "<group>"; };
 		ACB10B12285C5A61009CCAD6 /* AnimalCategoriesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoriesAPIClient.swift; sourceTree = "<group>"; };
 		ACB10B16285C5B35009CCAD6 /* GetCategoriesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCategoriesRequest.swift; sourceTree = "<group>"; };
@@ -182,6 +212,7 @@
 		AC0D2762285E27620001B5CA /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				AC36E8112860E3F4004E3F64 /* Repository protocols */,
 				AC36E8092860DB38004E3F64 /* UseCases */,
 				AC0D2763285E277B0001B5CA /* Model */,
 			);
@@ -240,20 +271,24 @@
 		AC36E8062860D831004E3F64 /* DataRepositories */ = {
 			isa = PBXGroup;
 			children = (
+				AC36E8232860FBC3004E3F64 /* AnimalCategoriesRepository.swift */,
 			);
 			path = DataRepositories;
 			sourceTree = "<group>";
 		};
-		AC36E8072860D854004E3F64 /* New Group */ = {
+		AC36E8072860D854004E3F64 /* Data Sources */ = {
 			isa = PBXGroup;
 			children = (
+				AC36E8182860F681004E3F64 /* AnimalCategoriesDataSource */,
 			);
-			path = "New Group";
+			path = "Data Sources";
 			sourceTree = "<group>";
 		};
 		AC36E8082860D859004E3F64 /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
+				AC50780D28611D5D00898079 /* Objects */,
+				AC5078082861103300898079 /* Data Provider */,
 			);
 			path = Persistance;
 			sourceTree = "<group>";
@@ -276,6 +311,63 @@
 			path = "Get Animal Categories";
 			sourceTree = "<group>";
 		};
+		AC36E8112860E3F4004E3F64 /* Repository protocols */ = {
+			isa = PBXGroup;
+			children = (
+				AC36E8122860E433004E3F64 /* AnimalCategoriesRepositoryProtocol.swift */,
+				AC36E8142860E96A004E3F64 /* AnimalCategoriesRepositoryGetRequest.swift */,
+				AC36E82528610126004E3F64 /* FakeAnimalCategoriesRepository.swift */,
+			);
+			path = "Repository protocols";
+			sourceTree = "<group>";
+		};
+		AC36E8182860F681004E3F64 /* AnimalCategoriesDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				AC36E81E2860FA83004E3F64 /* Writer */,
+				AC36E81D2860FA7B004E3F64 /* Reader */,
+			);
+			path = AnimalCategoriesDataSource;
+			sourceTree = "<group>";
+		};
+		AC36E81D2860FA7B004E3F64 /* Reader */ = {
+			isa = PBXGroup;
+			children = (
+				AC36E8162860EA23004E3F64 /* AnimalCategoriesDataSourceReader.swift */,
+				AC36E8192860F689004E3F64 /* AnimalCategoriesDataSourceReaderRequest.swift */,
+			);
+			path = Reader;
+			sourceTree = "<group>";
+		};
+		AC36E81E2860FA83004E3F64 /* Writer */ = {
+			isa = PBXGroup;
+			children = (
+				AC36E81F2860FA97004E3F64 /* AnimalCategoriesDataSourceWriterSaveMultipleRequest.swift */,
+				AC36E8212860FAEB004E3F64 /* AnimalCategoryDataSourceWriter.swift */,
+			);
+			path = Writer;
+			sourceTree = "<group>";
+		};
+		AC5078082861103300898079 /* Data Provider */ = {
+			isa = PBXGroup;
+			children = (
+				AC5078092861104100898079 /* DataProvider.swift */,
+				AC50780B28611C9D00898079 /* AnimalCategoryStorage.swift */,
+			);
+			path = "Data Provider";
+			sourceTree = "<group>";
+		};
+		AC50780D28611D5D00898079 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				AC50780E28611D7000898079 /* AnimalCategoryObject.swift */,
+				AC50781028611E5800898079 /* AnimalCategoryContentObject.swift */,
+				AC50781228611F2200898079 /* AnimalCategory+Object.swift */,
+				AC50781428611FE500898079 /* AnimalCategoryContent+Object.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
 		ACB10B14285C5AEE009CCAD6 /* AnimalCategoriesService */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +375,7 @@
 				ACB10B1A285C72F4009CCAD6 /* AnimalCategoriesService.swift */,
 				ACB10B1C285C739B009CCAD6 /* AnimalCategoriesServiceImplementation.swift */,
 				AC0D2778285E3D130001B5CA /* FakeAnimalCategoriesService.swift */,
+				AC36E81B2860F722004E3F64 /* AnimalCategoriesDataSourceImplementation.swift */,
 			);
 			path = AnimalCategoriesService;
 			sourceTree = "<group>";
@@ -358,10 +451,10 @@
 		ACE9FDD9285BB60D006BD107 /* Infrastracture */ = {
 			isa = PBXGroup;
 			children = (
-				AC36E8082860D859004E3F64 /* Persistance */,
-				AC36E8072860D854004E3F64 /* New Group */,
 				AC36E8062860D831004E3F64 /* DataRepositories */,
+				AC36E8072860D854004E3F64 /* Data Sources */,
 				ACE9FDDB285BB6EF006BD107 /* Network */,
+				AC36E8082860D859004E3F64 /* Persistance */,
 			);
 			path = Infrastracture;
 			sourceTree = "<group>";
@@ -532,6 +625,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC50780F28611D7000898079 /* AnimalCategoryObject.swift in Sources */,
 				AC0D2755285DFCB90001B5CA /* AnimalCategoriesListRow.swift in Sources */,
 				ACB10B11285C598F009CCAD6 /* AnimalCategoriesServiceError.swift in Sources */,
 				AC0D2774285E2D590001B5CA /* AnimalCategory+ImageLoadingSource.swift in Sources */,
@@ -539,21 +633,33 @@
 				AC0D2771285E2C490001B5CA /* FakeImageLoader.swift in Sources */,
 				AC298A83285F06C5009A73E5 /* FactCard.swift in Sources */,
 				ACB10B1B285C72F4009CCAD6 /* AnimalCategoriesService.swift in Sources */,
+				AC50781328611F2200898079 /* AnimalCategory+Object.swift in Sources */,
 				AC0D2780285E7D3B0001B5CA /* FactsView.swift in Sources */,
+				AC36E81C2860F722004E3F64 /* AnimalCategoriesDataSourceImplementation.swift in Sources */,
+				AC36E8202860FA97004E3F64 /* AnimalCategoriesDataSourceWriterSaveMultipleRequest.swift in Sources */,
+				AC36E82628610126004E3F64 /* FakeAnimalCategoriesRepository.swift in Sources */,
+				AC50781528611FE500898079 /* AnimalCategoryContent+Object.swift in Sources */,
+				AC50780C28611C9D00898079 /* AnimalCategoryStorage.swift in Sources */,
+				AC50781128611E5800898079 /* AnimalCategoryContentObject.swift in Sources */,
 				AC298A85285F3AC6009A73E5 /* ImageButtonOrEmpty.swift in Sources */,
+				AC36E8222860FAEB004E3F64 /* AnimalCategoryDataSourceWriter.swift in Sources */,
+				AC36E8172860EA23004E3F64 /* AnimalCategoriesDataSourceReader.swift in Sources */,
 				AC298A87285F3C0E009A73E5 /* FactDisplayItem.swift in Sources */,
 				ACB10B13285C5A61009CCAD6 /* AnimalCategoriesAPIClient.swift in Sources */,
 				AC0D2770285E2C490001B5CA /* ImageLoadingSource.swift in Sources */,
+				AC36E8242860FBC3004E3F64 /* AnimalCategoriesRepository.swift in Sources */,
 				AC298A89285F3D0E009A73E5 /* FactsViewModel.swift in Sources */,
 				ACB10B19285C5B6D009CCAD6 /* GetCategoriesResponse.swift in Sources */,
 				AC36E8102860DCAF004E3F64 /* GetAnimalCategoriesRequest.swift in Sources */,
 				AC36E80D2860DBDD004E3F64 /* GetAnimalCategories.swift in Sources */,
 				ACB10B17285C5B35009CCAD6 /* GetCategoriesRequest.swift in Sources */,
+				AC36E81A2860F689004E3F64 /* AnimalCategoriesDataSourceReaderRequest.swift in Sources */,
 				AC0D2777285E30B00001B5CA /* AnimalCategory+Transform.swift in Sources */,
 				AC0D276E285E2C490001B5CA /* ImageLoadingResult.swift in Sources */,
 				AC36E80B2860DB74004E3F64 /* UseCase.swift in Sources */,
 				AC0D277B285E7A590001B5CA /* NavigationBarModifier.swift in Sources */,
 				AC0D277D285E7BCD0001B5CA /* View+NavigationBar.swift in Sources */,
+				AC36E8132860E433004E3F64 /* AnimalCategoriesRepositoryProtocol.swift in Sources */,
 				ACE9FDB0285BB51F006BD107 /* WordsBoosterTestTaskApp.swift in Sources */,
 				ACB10B1D285C739B009CCAD6 /* AnimalCategoriesServiceImplementation.swift in Sources */,
 				ACE9FDE0285BB88E006BD107 /* AnimalCategoriesURLRequest.swift in Sources */,
@@ -562,9 +668,11 @@
 				AC0D276F285E2C490001B5CA /* ImageLoaderProtocol.swift in Sources */,
 				AC0D2759285E0E340001B5CA /* LoadingImageView.swift in Sources */,
 				AC0D275D285E1B7A0001B5CA /* AnimalCategoriesListDisplayItem.swift in Sources */,
+				AC50780A2861104100898079 /* DataProvider.swift in Sources */,
 				AC0D2779285E3D130001B5CA /* FakeAnimalCategoriesService.swift in Sources */,
 				AC0D2765285E27990001B5CA /* AnimalCategory.swift in Sources */,
 				AC0D275B285E11C30001B5CA /* PremiumView.swift in Sources */,
+				AC36E8152860E96A004E3F64 /* AnimalCategoriesRepositoryGetRequest.swift in Sources */,
 				ACE9FDDE285BB7E1006BD107 /* AnimalCategoriesEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

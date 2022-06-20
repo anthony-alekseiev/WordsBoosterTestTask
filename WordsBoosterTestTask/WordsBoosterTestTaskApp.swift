@@ -12,10 +12,26 @@ import Combine
 struct WordsBoosterTestTaskApp: App {
     
     let imageLoader: ImageLoader = WBImageLoader()
-    let categoriesService: AnimalCategoriesService = AnimalCategoriesAPIClient()
+    let apiClient = AnimalCategoriesAPIClient()
+    var dataProvider: DataProvider = {
+        let p = DataProvider()
+        p.configure()
+        return p
+    }()
+    var remoteDataSource: AnimalCategoriesDataSourceReader { apiClient }
+    var localDataSource: (AnimalCategoriesDataSourceReader & AnimalCategoriesDataSourceWriter) {
+        AnimalCategoryStorage(provider: dataProvider)
+    }
+    
+    var animalCategoriesRespository: AnimalCategoriesRepositoryProtocol {
+        AnimalCategoriesRepository(
+            localDataSource: localDataSource,
+            remoteDataSource: remoteDataSource
+        )
+    }
     
     var getAnimalCategoriesUseCase: GetAnimalCategories {
-        GetAnimalCategories(categoriesService: categoriesService)
+        GetAnimalCategories(repository: animalCategoriesRespository)
     }
     
     var animalCategoriesViewModel: AnimalCategoriesListViewModel {

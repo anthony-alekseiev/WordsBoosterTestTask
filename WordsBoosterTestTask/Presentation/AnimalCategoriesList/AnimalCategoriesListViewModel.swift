@@ -77,13 +77,14 @@ final class AnimalCategoriesListViewModel: ObservableObject {
         )
         .receive(on: DispatchQueue.main)
         .sink { [weak self] completion in
-            self?.isFetching = false
+            
             if case .failure(let error) = completion {
                 self?.alertType = .error
                 self?.shouldPresentAlert = true
                 self?.error = error
             }
         } receiveValue: { [weak self] value in
+            self?.isFetching = value.isEmpty
             self?.categories = value
             self?.reloadItems()
         }
