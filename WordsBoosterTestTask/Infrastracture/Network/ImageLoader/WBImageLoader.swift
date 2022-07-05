@@ -9,11 +9,11 @@ import SwiftUI
 import Combine
 
 struct WBImageLoader: ImageLoader {
-    
+
     init() {
-        
+
     }
-    
+
     func loadImages(for source: [ImageLoadingSource]) -> AnyPublisher<ImageLoadingResult, Never> {
         source
             .publisher
@@ -21,9 +21,9 @@ struct WBImageLoader: ImageLoader {
                 loadImage(for: $0)
             }
             .eraseToAnyPublisher()
-        
+
     }
-    
+
     private func loadImage(for source: ImageLoadingSource) -> AnyPublisher<ImageLoadingResult, Never> {
         URLSession.shared
             .dataTaskPublisher(for: source.imageUrl)

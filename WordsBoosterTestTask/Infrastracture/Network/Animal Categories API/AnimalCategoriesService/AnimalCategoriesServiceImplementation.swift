@@ -9,8 +9,8 @@ import Foundation
 import Combine
 
 extension AnimalCategoriesAPIClient: AnimalCategoriesService {
-    func getCategories(request: AnimalCategoriesService_GetCategoriesRequest) ->
-    AnyPublisher<AnimalCategoriesService_GetCategoriesResponse, AnimalCategoriesServiceError> {
+    func getCategories(request: AnimalCategoriesServiceGetRequest) ->
+    AnyPublisher<AnimalCategoriesServiceGetResponse, AnimalCategoriesServiceError> {
         let request = AnimalCategoriesEndpoint.getCategories.urlRequest
         return wrappedRequest(urlRequest: request)
     }

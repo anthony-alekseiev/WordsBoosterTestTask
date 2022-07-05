@@ -7,19 +7,19 @@
 
 import Foundation
 
-typealias AnimalCategoriesService_GetCategoriesResponse = [AnimalCategoriesService_GetCategoriesResponseCategory]
+typealias AnimalCategoriesServiceGetResponse = [AnimalCategoriesServiceGetResponseUnit]
 
-struct AnimalCategoriesService_GetCategoriesResponseCategory: Decodable {
+struct AnimalCategoriesServiceGetResponseUnit: Decodable {
     enum Status: String, Decodable {
-        case paid = "paid"
-        case free = "free"
+        case paid
+        case free
     }
-    
+
     struct Content: Decodable {
         var fact: String
         var image: URL
     }
-    
+
     var title: String
     var description: String
     var image: URL

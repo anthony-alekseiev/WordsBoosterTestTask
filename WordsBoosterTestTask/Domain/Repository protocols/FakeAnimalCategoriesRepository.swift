@@ -9,12 +9,12 @@ import Foundation
 import Combine
 
 struct FakeAnimalCategoriesRepository: AnimalCategoriesRepositoryProtocol {
-    
+
     private var categroies: [AnimalCategory] = [AnimalCategory]()
-    private var error: Error? = nil
-    
+    private var error: Error?
+
     private var subject = PassthroughSubject<[AnimalCategory], Error>()
-    
+
     func getAnimalCategories(_ request: AnimalCategoriesRepositoryGetRequest) -> AnyPublisher<[AnimalCategory], Error> {
         if let error = error {
             subject.send(completion: .failure(error))

@@ -9,18 +9,20 @@ import Foundation
 import Combine
 
 struct FakeAnimalCategoriesService: AnimalCategoriesService {
-    let publisher = PassthroughSubject<AnimalCategoriesService_GetCategoriesResponse, AnimalCategoriesServiceError>()
-    var response: AnimalCategoriesService_GetCategoriesResponse
+    let publisher = PassthroughSubject<AnimalCategoriesServiceGetResponse, AnimalCategoriesServiceError>()
+    var response: AnimalCategoriesServiceGetResponse
     var error: AnimalCategoriesServiceError?
-    
+
     init(
-        expectedResponse: AnimalCategoriesService_GetCategoriesResponse = [],
+        expectedResponse: AnimalCategoriesServiceGetResponse = [],
         expectedError: AnimalCategoriesServiceError? = nil
     ) {
         self.response = expectedResponse
     }
-    
-    func getCategories(request: AnimalCategoriesService_GetCategoriesRequest) -> AnyPublisher<AnimalCategoriesService_GetCategoriesResponse, AnimalCategoriesServiceError> {
+
+    func getCategories(
+        request: AnimalCategoriesServiceGetRequest
+    ) -> AnyPublisher<AnimalCategoriesServiceGetResponse, AnimalCategoriesServiceError> {
         if let error = error {
             publisher.send(completion: .failure(error))
         } else {
@@ -28,5 +30,5 @@ struct FakeAnimalCategoriesService: AnimalCategoriesService {
         }
         return publisher.eraseToAnyPublisher()
     }
-    
+
 }

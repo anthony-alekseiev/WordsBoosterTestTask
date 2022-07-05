@@ -9,6 +9,6 @@ import Foundation
 import Combine
 
 protocol AnimalCategoriesService {
-    func getCategories(request: AnimalCategoriesService_GetCategoriesRequest) ->
-    AnyPublisher<AnimalCategoriesService_GetCategoriesResponse, AnimalCategoriesServiceError>
+    func getCategories(request: AnimalCategoriesServiceGetRequest) ->
+    AnyPublisher<AnimalCategoriesServiceGetResponse, AnimalCategoriesServiceError>
 }

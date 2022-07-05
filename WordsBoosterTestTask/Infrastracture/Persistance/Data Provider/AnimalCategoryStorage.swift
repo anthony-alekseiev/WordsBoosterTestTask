@@ -10,7 +10,7 @@ import Combine
 
 struct AnimalCategoryStorage {
     let provider: DataProvider
-    
+
     init(provider: DataProvider) {
         self.provider = provider
     }
@@ -27,9 +27,9 @@ extension AnimalCategoryStorage: AnimalCategoriesDataSourceReader {
 }
 
 extension AnimalCategoryStorage: AnimalCategoriesDataSourceWriter {
-    func saveMultiple(with request: AnimalCategoriesDataSourceWriterSaveMultipleRequest) {
-        self.provider.add(
-            request.categories.map{ AnimalCategoryObject(with: $0) }
+    func saveMultiple(with request: AnimalCategoriesDataSourceSaveRequest) throws {
+        try self.provider.add(
+            request.categories.map { AnimalCategoryObject(with: $0) }
         )
     }
 }

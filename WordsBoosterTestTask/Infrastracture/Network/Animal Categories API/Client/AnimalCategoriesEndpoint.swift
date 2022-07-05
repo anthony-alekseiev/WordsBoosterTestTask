@@ -9,9 +9,9 @@ import Foundation
 
 enum AnimalCategoriesEndpoint {
     static let baseURLString = "https://drive.google.com/uc?export=download&id=12L7OflAsIxPOF47ssRdKyjXoWbUrq4V5"
-    
+
     case getCategories
-    
+
     var urlRequest: AnimalCategoriesURLRequest {
         switch self {
         case .getCategories:
@@ -24,5 +24,5 @@ enum AnimalCategoriesEndpoint {
             return AnimalCategoriesURLRequest(urlSessionRequest: request)
         }
     }
-    
+
 }

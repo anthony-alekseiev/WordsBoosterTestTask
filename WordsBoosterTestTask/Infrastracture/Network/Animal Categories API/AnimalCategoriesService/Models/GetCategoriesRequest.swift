@@ -7,5 +7,5 @@
 
 import Foundation
 
-struct AnimalCategoriesService_GetCategoriesRequest {
+struct AnimalCategoriesServiceGetRequest {
 }

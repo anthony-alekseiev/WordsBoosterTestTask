@@ -9,16 +9,16 @@ import Foundation
 
 struct AnimalCategory {
     enum Status: String {
-        case unknown = "unknown"
-        case paid = "paid"
-        case free = "free"
+        case unknown
+        case paid
+        case free
     }
-    
+
     struct Content {
         var fact: String
         var image: URL
     }
-    
+
     var title: String
     var description: String
     var image: URL

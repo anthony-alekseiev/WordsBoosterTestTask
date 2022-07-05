@@ -10,7 +10,7 @@ import SwiftUI
 struct AnimaCategoriesListView: View {
     @ObservedObject var viewModel: AnimalCategoriesListViewModel
     var detailsViewBuilder: (_ animalCategory: AnimalCategory) -> FactsView
-    
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -29,7 +29,6 @@ struct AnimaCategoriesListView: View {
                     categoriesList(geometry: geometry)
                 }
             }
-            
 
         }
         .alert(isPresented: $viewModel.shouldPresentAlert) {
@@ -38,7 +37,7 @@ struct AnimaCategoriesListView: View {
                 return errorAlert
             case .comingSoon:
                 return comingSoonAlert
-            case .ad:
+            case .adv:
                 return showAddAlert
             }
         }
@@ -48,7 +47,7 @@ struct AnimaCategoriesListView: View {
         .navigationBarHidden(true)
         .navigationBarTitle(Text(""))
     }
-    
+
     @ViewBuilder
     private var nextScreenNavigationLink: some View {
         NavigationLink(
@@ -63,7 +62,7 @@ struct AnimaCategoriesListView: View {
             }
             .hidden()
     }
-    
+
     private var errorAlert: Alert {
         Alert(
             title: Text("Error"),
@@ -72,7 +71,7 @@ struct AnimaCategoriesListView: View {
             )
         )
     }
-    
+
     private var comingSoonAlert: Alert {
         Alert(
             title: Text("Coming soon"),
@@ -80,7 +79,7 @@ struct AnimaCategoriesListView: View {
             dismissButton: Alert.Button.cancel(Text("OK"))
         )
     }
-    
+
     private var showAddAlert: Alert {
         Alert(
             title: Text("Watch Ad"),
@@ -94,7 +93,7 @@ struct AnimaCategoriesListView: View {
             )
         )
     }
-    
+
     private func categoriesList(geometry: GeometryProxy) -> some View {
             List($viewModel.categoryItems) { item in
                 Button {
@@ -111,6 +110,29 @@ struct AnimaCategoriesListView: View {
 }
 
 struct AnimaCategoriesListView_Previews: PreviewProvider {
+    static var factOne: AnimalCategory.Content {
+        let factDetails = "During the Renaissance, detailed portraits of the dog as a symbol of fidelity and loyalty appeared in mythological, allegorical, and religious art throughout Europe"
+        let factDetailsContinuation = ", including works by Leonardo da Vinci, Diego Velázquez, Jan van Eyck, and Albrecht Durer."
+        return AnimalCategory.Content(
+            fact: factDetails + factDetailsContinuation,
+            image: URL(string: "https://images.dog.ceo/breeds/basenji/n02110806_4150.jpg")!
+        )
+    }
+    static var factTwo: AnimalCategory.Content {
+        AnimalCategory.Content(
+            fact: "The Mayans and Aztecs symbolized every tenth day with the dog, and those born under this sign were believed to have outstanding leadership skills.",
+            image: URL(string: "https://images.dog.ceo/breeds/cotondetulear/100_2397.jpgt")!
+        )
+    }
+    static var factThree: AnimalCategory.Content {
+        AnimalCategory.Content(
+            fact: "If never spayed or neutered, a female dog, her mate, and their puppies could produce over 66,000 dogs in 6 years!",
+            image: URL(string: "https://images.dog.ceo/breeds/puggle/IMG_075427.jpg")!
+        )
+    }
+    static var allFacts: [AnimalCategory.Content] {
+        [factOne, factTwo, factThree]
+    }
     @State static var viewModel = AnimalCategoriesListViewModel(
         imageLoader: FakeImageLoader(),
         getAnimalCategoriesUseCase: GetAnimalCategories(
@@ -125,24 +147,11 @@ struct AnimaCategoriesListView_Previews: PreviewProvider {
                 image: URL(string: "https://google.com")!,
                 order: 1,
                 status: .free,
-                content: [
-                    AnimalCategory.Content(
-                        fact: "During the Renaissance, detailed portraits of the dog as a symbol of fidelity and loyalty appeared in mythological, allegorical, and religious art throughout Europe, including works by Leonardo da Vinci, Diego Velázquez, Jan van Eyck, and Albrecht Durer.",
-                        image: URL(string: "https://images.dog.ceo/breeds/basenji/n02110806_4150.jpg")!
-                    ),
-                    AnimalCategory.Content(
-                        fact: "The Mayans and Aztecs symbolized every tenth day with the dog, and those born under this sign were believed to have outstanding leadership skills.",
-                        image: URL(string: "https://images.dog.ceo/breeds/cotondetulear/100_2397.jpgt")!
-                    ),
-                    AnimalCategory.Content(
-                        fact: "If never spayed or neutered, a female dog, her mate, and their puppies could produce over 66,000 dogs in 6 years!",
-                        image: URL(string: "https://images.dog.ceo/breeds/puggle/IMG_075427.jpg")!
-                    )
-                ]
+                content: allFacts
             ), imageLoader: FakeImageLoader()
         )
     }()
-    
+
     static var previews: some View {
         viewModel.categoryItems = [
             AnimalCategoriesListDisplayItem(
@@ -152,7 +161,7 @@ struct AnimaCategoriesListView_Previews: PreviewProvider {
                 title: "Dogs 🐕",
                 subtitle: "Different facts about dogs",
                 state: .paid
-                
+
             ),
             AnimalCategoriesListDisplayItem(
                 id: "2",
@@ -171,7 +180,7 @@ struct AnimaCategoriesListView_Previews: PreviewProvider {
                 state: .comingSoon
             )
         ]
-        
+
         return NavigationView {
             AnimaCategoriesListView(
                 viewModel: viewModel,

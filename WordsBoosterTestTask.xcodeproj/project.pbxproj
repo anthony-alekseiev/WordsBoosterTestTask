@@ -49,6 +49,7 @@
 		AC50781128611E5800898079 /* AnimalCategoryContentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC50781028611E5800898079 /* AnimalCategoryContentObject.swift */; };
 		AC50781328611F2200898079 /* AnimalCategory+Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC50781228611F2200898079 /* AnimalCategory+Object.swift */; };
 		AC50781528611FE500898079 /* AnimalCategoryContent+Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC50781428611FE500898079 /* AnimalCategoryContent+Object.swift */; };
+		AC50781728612B3100898079 /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC50781628612B3100898079 /* DI.swift */; };
 		ACB10B11285C598F009CCAD6 /* AnimalCategoriesServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB10B10285C598F009CCAD6 /* AnimalCategoriesServiceError.swift */; };
 		ACB10B13285C5A61009CCAD6 /* AnimalCategoriesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB10B12285C5A61009CCAD6 /* AnimalCategoriesAPIClient.swift */; };
 		ACB10B17285C5B35009CCAD6 /* GetCategoriesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB10B16285C5B35009CCAD6 /* GetCategoriesRequest.swift */; };
@@ -123,6 +124,7 @@
 		AC50781028611E5800898079 /* AnimalCategoryContentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoryContentObject.swift; sourceTree = "<group>"; };
 		AC50781228611F2200898079 /* AnimalCategory+Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimalCategory+Object.swift"; sourceTree = "<group>"; };
 		AC50781428611FE500898079 /* AnimalCategoryContent+Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimalCategoryContent+Object.swift"; sourceTree = "<group>"; };
+		AC50781628612B3100898079 /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
 		ACB10B10285C598F009CCAD6 /* AnimalCategoriesServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoriesServiceError.swift; sourceTree = "<group>"; };
 		ACB10B12285C5A61009CCAD6 /* AnimalCategoriesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCategoriesAPIClient.swift; sourceTree = "<group>"; };
 		ACB10B16285C5B35009CCAD6 /* GetCategoriesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCategoriesRequest.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 				AC0D2762285E27620001B5CA /* Domain */,
 				ACE9FDD9285BB60D006BD107 /* Infrastracture */,
 				AC0D2752285DFC820001B5CA /* Presentation */,
+				AC50781628612B3100898079 /* DI.swift */,
 				ACE9FDAF285BB51F006BD107 /* WordsBoosterTestTaskApp.swift */,
 				ACE9FDB3285BB521006BD107 /* Assets.xcassets */,
 				ACE9FDB5285BB521006BD107 /* Preview Content */,
@@ -498,6 +501,7 @@
 				ACE9FDA8285BB51F006BD107 /* Sources */,
 				ACE9FDA9285BB51F006BD107 /* Frameworks */,
 				ACE9FDAA285BB51F006BD107 /* Resources */,
+				AC8ACD9E2874552C00118CA3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -620,6 +624,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AC8ACD9E2874552C00118CA3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ACE9FDA8285BB51F006BD107 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -633,6 +657,7 @@
 				AC0D2771285E2C490001B5CA /* FakeImageLoader.swift in Sources */,
 				AC298A83285F06C5009A73E5 /* FactCard.swift in Sources */,
 				ACB10B1B285C72F4009CCAD6 /* AnimalCategoriesService.swift in Sources */,
+				AC50781728612B3100898079 /* DI.swift in Sources */,
 				AC50781328611F2200898079 /* AnimalCategory+Object.swift in Sources */,
 				AC0D2780285E7D3B0001B5CA /* FactsView.swift in Sources */,
 				AC36E81C2860F722004E3F64 /* AnimalCategoriesDataSourceImplementation.swift in Sources */,

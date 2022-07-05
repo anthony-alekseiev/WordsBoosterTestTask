@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct AnimalCategoriesDataSourceWriterSaveMultipleRequest {
+struct AnimalCategoriesDataSourceSaveRequest {
     var categories: [AnimalCategory]
 }

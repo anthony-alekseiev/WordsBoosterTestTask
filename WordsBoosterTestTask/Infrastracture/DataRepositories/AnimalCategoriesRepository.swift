@@ -11,10 +11,10 @@ import Combine
 class AnimalCategoriesRepository {
     let localDataSource: (AnimalCategoriesDataSourceReader & AnimalCategoriesDataSourceWriter)
     let remoteDataSource: AnimalCategoriesDataSourceReader
-    
+
     let subject = PassthroughSubject<[AnimalCategory], Error>()
     var store = [AnyCancellable]()
-    
+
     init(
         localDataSource: (AnimalCategoriesDataSourceReader & AnimalCategoriesDataSourceWriter),
         remoteDataSource: AnimalCategoriesDataSourceReader
@@ -22,7 +22,18 @@ class AnimalCategoriesRepository {
         self.localDataSource = localDataSource
         self.remoteDataSource = remoteDataSource
     }
-    
+    func saveRemoteToLacal(_ remote: [AnimalCategory]) {
+        do {
+            try localDataSource.saveMultiple(
+                with: AnimalCategoriesDataSourceSaveRequest(
+                    categories: remote
+                )
+            )
+        } catch {
+            print("Error while saving remote animal categories to local storage. Reason: \(error.localizedDescription)")
+        }
+    }
+
 }
 
 extension AnimalCategoriesRepository: AnimalCategoriesRepositoryProtocol {
@@ -34,11 +45,7 @@ extension AnimalCategoriesRepository: AnimalCategoriesRepositoryProtocol {
                     self?.subject.send(completion: .failure(error))
                 }
             } receiveValue: { [weak self] result in
-                self?.localDataSource.saveMultiple(
-                    with: AnimalCategoriesDataSourceWriterSaveMultipleRequest(
-                        categories: result
-                    )
-                )
+                self?.saveRemoteToLacal(result)
             }
             .store(in: &store)
         return localPublisher.merge(with: subject).eraseToAnyPublisher()

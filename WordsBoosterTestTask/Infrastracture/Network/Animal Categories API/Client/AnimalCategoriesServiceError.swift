@@ -7,14 +7,12 @@
 
 import Foundation
 
-import Foundation
-
 enum AnimalCategoriesServiceError: LocalizedError {
     case serverError
     case clientError
     case parsingError
     case unknownError(msg: String)
-    
+
     var errorDescription: String? {
         switch self {
         case .serverError:

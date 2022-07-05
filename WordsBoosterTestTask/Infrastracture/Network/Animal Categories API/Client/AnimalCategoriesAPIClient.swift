@@ -10,8 +10,10 @@ import Combine
 
 class AnimalCategoriesAPIClient {
     let apiSession = URLSession.shared
-    
-    func wrappedRequest<Response: Decodable>(urlRequest: AnimalCategoriesURLRequest) -> AnyPublisher<Response, AnimalCategoriesServiceError> {
+
+    func wrappedRequest<Response: Decodable>(
+        urlRequest: AnimalCategoriesURLRequest
+    ) -> AnyPublisher<Response, AnimalCategoriesServiceError> {
         return apiSession
             .dataTaskPublisher(for: urlRequest.urlSessionRequest)
             .map(\.data)

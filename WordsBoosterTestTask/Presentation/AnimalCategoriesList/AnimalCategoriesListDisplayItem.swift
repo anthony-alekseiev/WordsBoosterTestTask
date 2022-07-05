@@ -13,14 +13,14 @@ class AnimalCategoriesListDisplayItem: Identifiable {
         case paid
         case comingSoon
     }
-    
+
     var id: String
     var image: UIImage?
     var isLoading: Bool
     var title: String
     var subtitle: String
     var state: State
-    
+
     init(
         id: String,
         image: UIImage?,
@@ -47,7 +47,7 @@ extension AnimalCategoriesListDisplayItem {
         if domain.content.isEmpty {
             state = .comingSoon
         }
-        
+
         self.init(
             id: String(domain.order),
             image: nil,

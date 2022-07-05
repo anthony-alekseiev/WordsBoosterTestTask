@@ -11,13 +11,13 @@ struct ImageButtonOrEmpty: View {
     var enabled: Bool
     var image: Image
     var action: () -> Void
-    
-    init(enabled: Bool, image: Image,_ action: @escaping () -> Void) {
+
+    init(enabled: Bool, image: Image, _ action: @escaping () -> Void) {
         self.enabled = enabled
         self.image = image
         self.action = action
     }
-    
+
     @ViewBuilder
     var body: some View {
         if enabled {

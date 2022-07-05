@@ -8,5 +8,5 @@
 import Foundation
 
 protocol AnimalCategoriesDataSourceWriter {
-    func saveMultiple(with request: AnimalCategoriesDataSourceWriterSaveMultipleRequest)
+    func saveMultiple(with request: AnimalCategoriesDataSourceSaveRequest) throws
 }

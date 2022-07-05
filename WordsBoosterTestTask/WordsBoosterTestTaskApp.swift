@@ -10,53 +10,15 @@ import Combine
 
 @main
 struct WordsBoosterTestTaskApp: App {
-    
-    let imageLoader: ImageLoader = WBImageLoader()
-    let apiClient = AnimalCategoriesAPIClient()
-    var dataProvider: DataProvider = {
-        let p = DataProvider()
-        p.configure()
-        return p
-    }()
-    var remoteDataSource: AnimalCategoriesDataSourceReader { apiClient }
-    var localDataSource: (AnimalCategoriesDataSourceReader & AnimalCategoriesDataSourceWriter) {
-        AnimalCategoryStorage(provider: dataProvider)
-    }
-    
-    var animalCategoriesRespository: AnimalCategoriesRepositoryProtocol {
-        AnimalCategoriesRepository(
-            localDataSource: localDataSource,
-            remoteDataSource: remoteDataSource
-        )
-    }
-    
-    var getAnimalCategoriesUseCase: GetAnimalCategories {
-        GetAnimalCategories(repository: animalCategoriesRespository)
-    }
-    
-    var animalCategoriesViewModel: AnimalCategoriesListViewModel {
-        AnimalCategoriesListViewModel(
-            imageLoader: imageLoader,
-            getAnimalCategoriesUseCase: getAnimalCategoriesUseCase
-        )
-    }
-    
-    func buildFactsViewModel(_ category: AnimalCategory) -> FactsViewModel {
-        FactsViewModel(category: category, imageLoader: imageLoader)
-    }
-    
-    func buildFactsView(_ animalCategory: AnimalCategory) -> FactsView {
-        FactsView(viewModel: buildFactsViewModel(animalCategory))
-    }
-    
+
+    var diContainer = WBDIContainer()
+
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                AnimaCategoriesListView(
-                    viewModel: animalCategoriesViewModel,
-                    detailsViewBuilder: buildFactsView)
+                diContainer.animalCategoriesListView
             }
-            .navigationViewStyle(StackNavigationViewStyle())    
+            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }

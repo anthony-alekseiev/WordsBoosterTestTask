@@ -11,6 +11,6 @@ import Combine
 protocol UseCase {
     associatedtype Request
     associatedtype Response
-    
+
     func execute(with request: Request) -> AnyPublisher<Response, Error>
 }

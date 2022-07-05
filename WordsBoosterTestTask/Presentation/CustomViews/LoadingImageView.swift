@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct LoadingImageView: View {
-    
+
     @Binding var image: UIImage?
     @Binding var isLoading: Bool
-    
+
     var body: some View {
         ZStack {
             if image != nil {
@@ -30,14 +30,14 @@ struct LoadingImageView: View {
                 }
             }
         }
-        
+
     }
 }
 
 struct LoadingImage_Previews: PreviewProvider {
     @State static var img: UIImage?
     @State static var isLoading: Bool = true
-    
+
     static var previews: some View {
         LoadingImageView(image: $img, isLoading: $isLoading)
     }

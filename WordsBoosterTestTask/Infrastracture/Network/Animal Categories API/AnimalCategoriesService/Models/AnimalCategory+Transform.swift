@@ -8,7 +8,7 @@
 import Foundation
 
 extension AnimalCategory {
-    init(with networkItem: AnimalCategoriesService_GetCategoriesResponseCategory) {
+    init(with networkItem: AnimalCategoriesServiceGetResponseUnit) {
         self.init(
             title: networkItem.title,
             description: networkItem.description,
@@ -21,7 +21,7 @@ extension AnimalCategory {
 }
 
 extension AnimalCategory.Status {
-    init(with network: AnimalCategoriesService_GetCategoriesResponseCategory.Status) {
+    init(with network: AnimalCategoriesServiceGetResponseUnit.Status) {
         switch network {
         case .paid: self = .paid
         case .free: self = .free
@@ -30,7 +30,7 @@ extension AnimalCategory.Status {
 }
 
 extension AnimalCategory.Content {
-    init(with network: AnimalCategoriesService_GetCategoriesResponseCategory.Content) {
+    init(with network: AnimalCategoriesServiceGetResponseUnit.Content) {
         self.init(
             fact: network.fact,
             image: network.image

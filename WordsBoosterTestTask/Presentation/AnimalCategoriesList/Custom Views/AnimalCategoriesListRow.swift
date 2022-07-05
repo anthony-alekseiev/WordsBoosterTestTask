@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct AnimalCategoriesListRow: View {
-    
+
     @Binding var item: AnimalCategoriesListDisplayItem
-    
+
     var body: some View {
         ZStack {
             cardView
@@ -23,14 +23,14 @@ struct AnimalCategoriesListRow: View {
             radius: 2, x: 0, y: 2
         )
     }
-    
+
     private var cardView: some View {
         Rectangle()
             .fill(Color.white)
     }
-    
+
     @ViewBuilder private var mainContent: some View {
-        GeometryReader { (geometry : GeometryProxy) in
+        GeometryReader { (geometry: GeometryProxy) in
             HStack(alignment: .top, spacing: 12) {
                 LoadingImageView(
                     image: $item.image,
@@ -69,12 +69,12 @@ struct AnimalCategoriesListRow: View {
                 }
                 Spacer()
             }
-            
+
         }
         .padding([.top, .bottom], 5)
         .padding([.trailing, .leading], 10)
     }
-    
+
     @ViewBuilder private var comingSoonOverlay: some View {
         if item.state == .comingSoon {
                 ZStack {
@@ -99,7 +99,7 @@ struct AnimalCategoriesListRow_Previews: PreviewProvider {
         title: "Dogs 🐕",
         subtitle: "Different facts about dogs",
         state: .paid
-        
+
     )
     @State static var freeItem = AnimalCategoriesListDisplayItem(
         id: "2",
@@ -109,7 +109,7 @@ struct AnimalCategoriesListRow_Previews: PreviewProvider {
         subtitle: "Different facts about cats",
         state: .free
     )
-    
+
     @State static var noContentItem = AnimalCategoriesListDisplayItem(
         id: "3",
         image: nil,
@@ -118,7 +118,7 @@ struct AnimalCategoriesListRow_Previews: PreviewProvider {
         subtitle: "Different facts about pandas",
         state: .comingSoon
     )
-    
+
     static var previews: some View {
         ZStack {
             Rectangle()

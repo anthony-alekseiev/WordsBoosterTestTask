@@ -11,7 +11,7 @@ extension AnimalCategory {
     init(with persistingObject: AnimalCategoryObject) {
         self.init(
             title: persistingObject.title,
-            description: persistingObject._description,
+            description: persistingObject.details,
             image: URL(string: persistingObject.imageUrl)!,
             order: persistingObject.order,
             status: Status(rawValue: persistingObject.status) ?? .unknown,

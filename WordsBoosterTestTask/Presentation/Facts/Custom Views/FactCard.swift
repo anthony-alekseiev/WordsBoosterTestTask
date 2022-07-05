@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct FactCard: View {
-    
+
     @State private var translation: CGSize = .zero
     @Binding var item: FactDisplayItem
-    
+
     var previousAction: () -> Void
     var nextAction: () -> Void
-    
+
     var body: some View {
         ZStack {
             cardView
@@ -34,12 +34,12 @@ struct FactCard: View {
             radius: 60, x: 0, y: 20
         )
     }
-    
+
     private var cardView: some View {
         Rectangle()
             .fill(Color.white)
     }
-    
+
     private var factTextView: some View {
         Text(item.fact)
             .minimumScaleFactor(0.5)
@@ -52,7 +52,7 @@ struct FactCard: View {
         )
         .foregroundColor(.black)
     }
-    
+
     @ViewBuilder
     private var selectorView: some View {
         HStack {
@@ -69,7 +69,7 @@ struct FactCard: View {
             )
         }
     }
-    
+
     private func imageView(geometry: GeometryProxy) -> some View {
         LoadingImageView(
             image: $item.image,
@@ -92,20 +92,20 @@ struct FactCard_Previews: PreviewProvider {
         previousEnabled: true,
         nextEnabled: true
     )
-    
+
     static var previews: some View {
         ZStack {
             Rectangle()
                 .fill(Color(red: 147/256, green: 91/256, blue: 191/256))
             FactCard(item: $item, previousAction: {
-                
+
             }, nextAction: {
-                
+
             })
                 .frame(height: 435)
                 .padding(.horizontal, 20)
-                
+
         }
-        
+
     }
 }

@@ -11,9 +11,11 @@ import Realm
 import RealmSwift
 
 class DataProvider {
-    
-    func objects<T: Object>(_ type: T.Type, predicate: NSPredicate? = nil) -> AnyPublisher<Array<T>, Error> {
-        let realm = try! Realm()
+
+    func objects<T: Object>(_ type: T.Type, predicate: NSPredicate? = nil) -> AnyPublisher<[T], Error> {
+        guard let realm = try? Realm() else {
+            return Fail(error: NSError(domain: "Realm is not enabled", code: -10001)).eraseToAnyPublisher()
+        }
         realm.refresh()
         var objects = realm.objects(type)
         if let predicate = predicate {
@@ -26,8 +28,8 @@ class DataProvider {
             .eraseToAnyPublisher()
     }
 
-    func add<T: Object>(_ data: [T]) {
-        let realm = try! Realm()
+    func add<T: Object>(_ data: [T]) throws {
+        let realm = try Realm()
         realm.refresh()
 
         if realm.isInWriteTransaction {
@@ -38,7 +40,7 @@ class DataProvider {
             }
         }
     }
-    
+
     func configure() {
         let config = RLMRealmConfiguration.default()
         config.deleteRealmIfMigrationNeeded = true
